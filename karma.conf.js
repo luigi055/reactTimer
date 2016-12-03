@@ -16,6 +16,7 @@ module.exports = function (config) {
         timeout: '5000'
       }
     },
+    // Connect with webpack.config.js
     webpack: webpackConfig,
     webpackServer: {
       noInfo: true
