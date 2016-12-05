@@ -5,7 +5,7 @@ class Clock extends Component {
     super(props);
   }
 
-  formatSeconds = totalSeconds => {
+  formatSeconds(totalSeconds) {
     let seconds = totalSeconds % 60;
     let minutes = Math.floor(totalSeconds / 60);
 
