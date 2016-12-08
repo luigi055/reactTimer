@@ -13,6 +13,8 @@ class Countdown extends Component {
     this.handleSetCountdown = this.handleSetCountdown.bind(this);
     this.handleStatusChange = this.handleStatusChange.bind(this);
   }
+  // this will fire right after theres an update within the app either from
+  // its props or from its states
   componentDidUpdate(prevProps, prevState) {
     if (this.state.countdownStatus !== prevState.countdownStatus) {
       switch (this.state.countdownStatus) {
@@ -30,12 +32,38 @@ class Countdown extends Component {
       }
     }
   }
+  // componentWillUpdate will fired before changes in props or states
+  // componentWillUpdate(nextProps, nextState) {
+
+  // }
+  // This will execute exactly before dom render
+  // componentWillMount always get fire first
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+  // And then when the dom rendered componentDidMount executes
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+  // When the render component unmount
+  componentWillUnmount() {
+    console.log('componentDidUnmount');
+    clearInterval(this.timer);
+    this.timer = null;
+  }
+
   startTimer() {
     this.timer = setInterval(() => {
       const newCount = this.state.count -1;
       this.setState({
         count: newCount >= 0 ? newCount : 0
       });
+
+      if (newCount === 0) {
+        this.setState({
+          countdownStatus: 'stopped'
+        });
+      }
     }, 1000);
   }
   handleSetCountdown(seconds) {
