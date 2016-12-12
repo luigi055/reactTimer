@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
@@ -40,6 +41,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './public'
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+    ]
   },
   //this creates source maps of our components that the browser will understand
   //for debugging in browser

@@ -7,7 +7,6 @@ import Countdown from './components/Countdown';
 
 
 // Lload foundation to our components with webpack
-require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
 // App styles
 require('style!css!sass!./styles/styles.scss');
