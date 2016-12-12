@@ -24,7 +24,7 @@ class Controls extends Component {
             className="button secondary"
           >Pause
           </button>);
-      } else if (countdownStatus === 'paused') {
+      } else {
         return (
           <button 
             onClick={this.onStatusChange('started')} 
